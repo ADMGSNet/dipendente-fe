@@ -1,0 +1,10 @@
+<div class="expandable-section" [ngClass]="{'expanded':isExpanded,'summary':typeSummary}">
+    <div class="header">
+      {{ title }}
+      <fa-icon [icon]="isExpanded ? faChevronUp : faChevronDown" (click)="toggle()"></fa-icon> 
+
+    </div>
+    <div class="content" *ngIf="isExpanded">
+      <ng-content></ng-content>
+    </div>
+  </div>

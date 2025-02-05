@@ -1,0 +1,38 @@
+@use "../../../assets/styles/variables" as variable;
+
+.boxState{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px 8px;
+    width: fit-content;
+    border-radius: 4px;
+    color: white;
+
+    &.boxStateApprovata{
+        background-color: green;
+    }
+        
+    &.boxStateVerifica{
+        background-color: purple;
+    }
+        
+        
+    &.boxStateRespinta{
+        background-color: red;
+    }
+        
+    &.boxStateDocumenti{
+        background-color: orange;
+    }
+        
+    &.boxStateBozza{
+        background-color: grey;
+    }
+
+    &.boxStateInvio{
+        background-color: brown;
+    }
+
+}
+

@@ -1,0 +1,43 @@
+@use "../../../assets/styles/variables" as variable;
+
+.expandable-section {
+  border-bottom: 2px solid variable.$primary-color;
+
+  .header {
+    color: variable.$primary-color;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    padding: 20px 10px 20px 0;
+
+    fa-icon {
+      cursor: pointer;
+      color: variable.$primary-color;
+      font-size: 16px;
+    }
+  }
+
+  &.summary {
+    box-shadow: 0 0 5px white;
+    -moz-box-shadow: 0 0 5px white;
+    -webkit-box-shadow: 0 0 5px #888;
+    border: none;
+    .header {
+      padding: 12px 12px;
+      fa-icon {
+        font-size: 12px;
+      }
+    }
+    .content {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 10px;
+      padding: 15px;
+      @media screen and (max-width: variable.$screen-responsive) {
+        grid-template-columns: 1fr;
+      }
+    }
+  }
+}

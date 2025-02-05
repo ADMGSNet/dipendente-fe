@@ -1,0 +1,1106 @@
+<div class="row-center-center w100 container-page">
+
+   
+
+    <div class="column-left-center w-90">
+        <div class="step-wrapper">
+            <app-invia-domanda-status-step [step]="currentStep"></app-invia-domanda-status-step>
+        </div>
+        <!-- LINK VICINO NAVBAR -->
+        <!-- <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb> -->
+        <!-- 
+        <div class="block-descrizione-servizio ">
+
+            <div class="titolo-dettaglio-content">
+                <h3 class="title-text">Dettaglio domanda</h3>
+
+                <app-chips [state]="selectedRow?.state ?? ''"></app-chips>
+
+            </div>
+            <p>
+                Dati in arrivo dalla tabella: {{ selectedRow | json }}<br>
+                Lorem ipsum dolor sit amet consectetur. Varius amet diam elementum amet sit maecenas aliquet sit.
+                Consectetur quis id tristique neque malesuada nunc amet. Amet in neque dignissim gravida vel diam purus
+                aliquam urna. Molestie enim aliquet a tristique velit nunc et hac tempor.
+            </p> -->
+
+        <!--</div> -->
+
+
+
+        <!-- <div class="bold mb-20px color-red">Note</div>
+
+        <div class="column-left-center  note-block">
+            <div class=" note-row">
+                <div>{{ selectedRo.note }}</div>
+                <div class="link-icon">
+                    <a class="color-red" target="_blank" href="https://www.comune.roma.it/web/it/home.page">Scarica
+                        richiesta documentazione integrativa</a>
+
+                    <fa-icon class="color-red" [icon]="faCircleDown"></fa-icon>
+                </div>
+
+            </div> -->
+
+        <!-- 
+                 "richiedente": {"phoneNumber": "3209898345" }
+            -->
+
+            <form *ngIf="form" [formGroup]="form">
+
+                
+                    <div class="form-section"  *ngIf="currentStep == 1">
+                        <h3>Dati anagrafici del richiedente</h3>
+                        <div formGroupName="richiedente" class="section-form section-richiedente">
+
+                            
+
+                            <div class="form-single-input">
+
+                                <label for="firstNameRichiedente">Nome</label>
+                                <input id="firstNameRichiedente" type="text" formControlName="firstNameRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.firstNameRichiedente')?.errors }">
+                                <!-- Messaggi di errore -->
+                                <div class="error-message" *ngIf="form.get('richiedente.firstNameRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.firstNameRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.firstNameRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+    
+    
+    
+                            <div class="form-single-input">
+                                <label for="lastNameRichiedente">Cognome</label>
+                                <input id="lastNameRichiedente" type="text" formControlName="lastNameRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.lastNameRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.lastNameRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.lastNameRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.lastNameRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthDayRichiedente">Data di nascita</label>
+                                <input id="birthDayRichiedente" type="text" formControlName="birthDayRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.birthDayRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.birthDayRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.birthDayRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.birthDayRichiedente')?.hasError('pattern')">
+                                        Inserisci numeri e '/' (gg/mm/aaaa)
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthPlaceRichiedente">Luogo di nascita</label>
+                                <input id="birthPlaceRichiedente" type="text" formControlName="birthPlaceRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.birthPlaceRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.birthPlaceRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.birthPlaceRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.birthPlaceRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthProvinceRichiedente">Provincia</label>
+                                <select id="birthProvinceRichiedente" formControlName="birthProvinceRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.birthProvinceRichiedente')?.errors }">
+                                    <option *ngFor="let provincia of province" [value]="provincia.code">
+                                        {{ provincia.name }}
+                                    </option>
+                                </select>
+                                <div class="error-message" *ngIf="form.get('richiedente.birthProvinceRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.birthProvinceRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentInRichiedente">Residente in</label>
+                                <input id="residentInRichiedente" type="text" formControlName="residentInRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.residentInRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.residentInRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.residentInRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.residentInRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentStreetRichiedente">Via</label>
+                                <input id="residentStreetRichiedente" type="text"
+                                    formControlName="residentStreetRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.residentStreetRichiedente')?.errors }">
+                                <div class="error-message"
+                                    *ngIf="form.get('richiedente.residentStreetRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.residentStreetRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.residentStreetRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentCivicRichiedente">Numero civico</label>
+                                <input id="residentCivicRichiedente" type="text" formControlName="residentCivicRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.residentCivicRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.residentCivicRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.residentCivicRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <!--span *ngIf="form.get('richiedente.residentCivicRichiedente')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span-->
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residenceCapRichiedente">C.A.P.</label>
+                                <input id="residenceCapRichiedente" type="text" formControlName="residenceCapRichiedente"
+                                    maxlength="5"
+                                    [ngClass]="{'input-error' : form.get('richiedente.residenceCapRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.residenceCapRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.residenceCapRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.residenceCapRichiedente')?.hasError('pattern')">
+                                        Inserisci un CAP valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="townHallRichiedente">Municipio</label>
+                                <input id="townHallRichiedente" type="text" formControlName="townHallRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.townHallRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.townHallRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.townHallRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.townHallRichiedente')?.hasError('pattern')">
+                                        Inserisci un Municipio valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="emailRichiedente">E-mail</label>
+                                <input id="emailRichiedente" type="text" formControlName="emailRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.emailRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.emailRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.emailRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.emailRichiedente')?.hasError('pattern')">
+                                        Inserisci un Email valida.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="pecRichiedente">Pec</label>
+                                <input id="pecRichiedente" type="text" formControlName="pecRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.pecRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.pecRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.pecRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.pecRichiedente')?.hasError('pattern')">
+                                        Inserisci una PEC valida.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="cfRichiedente">Codice fiscale</label>
+                                <input id="cfRichiedente" type="text" formControlName="cfRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.cfRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.cfRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.cfRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.cfRichiedente')?.hasError('pattern')">
+                                        Inserisci un C.F. valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="phoneNumberRichiedente">Telefono</label>
+                                <input id="phoneNumberRichiedente" type="text" formControlName="phoneNumberRichiedente"
+                                    [ngClass]="{'input-error' : form.get('richiedente.phoneNumberRichiedente')?.errors }">
+                                <div class="error-message" *ngIf="form.get('richiedente.phoneNumberRichiedente')?.errors">
+                                    <span *ngIf="form.get('richiedente.phoneNumberRichiedente')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('richiedente.phoneNumberRichiedente')?.hasError('pattern')">
+                                        Inserisci un numero valido.
+                                    </span>
+                                </div>
+                            </div>
+    
+    
+                        </div>                      
+                    </div>
+                    
+
+                    <div class="form-section"  *ngIf="currentStep == 2">
+                        <h3>Dati anagrafici del beneficiario</h3>
+                        <div formGroupName="beneficiario" class="section-form section-beneficiario">
+
+                            <p>
+                                Che il soggetto avente diritto al contributo (vedi nota 6), in quanto onerato della spesa è:
+                            </p>
+                            <div class="form-single-input type-checkbox is-richiedente">
+                                <input (change)="onCheckboxChange($event)" id="isRichiedente" type="checkbox" formControlName="isRichiedente">
+                                <label for="isRichiedente">Il sottoscritto richiedente</label>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="firstNameBeneficiario">Nome</label>
+                                <input id="firstNameBeneficiario" type="text" formControlName="firstNameBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.firstNameBeneficiario')?.dirty &&form.get('beneficiario.firstNameBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.firstNameBeneficiario')?.dirty &&form.get('beneficiario.firstNameBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.firstNameBeneficiario')?.dirty &&form.get('beneficiario.firstNameBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.firstNameBeneficiario')?.dirty &&form.get('beneficiario.firstNameBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="lastNameBeneficiario">Cognome</label>
+                                <input id="lastNameBeneficiario" type="text" formControlName="lastNameBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.lastNameBeneficiario')?.dirty &&form.get('beneficiario.lastNameBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.lastNameBeneficiario')?.dirty &&form.get('beneficiario.lastNameBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.lastNameBeneficiario')?.dirty &&form.get('beneficiario.lastNameBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.lastNameBeneficiario')?.dirty &&form.get('beneficiario.lastNameBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthDayBeneficiario">Data di nascita</label>
+                                <input id="birthDayBeneficiario" type="text" formControlName="birthDayBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.birthDayBeneficiario')?.dirty &&form.get('beneficiario.birthDayBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.birthDayBeneficiario')?.dirty &&form.get('beneficiario.birthDayBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.birthDayBeneficiario')?.dirty &&form.get('beneficiario.birthDayBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.birthDayBeneficiario')?.dirty &&form.get('beneficiario.birthDayBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthPlaceBeneficiario">Luogo di nascita</label>
+                                <input id="birthPlaceBeneficiario" type="text" formControlName="birthPlaceBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.birthPlaceBeneficiario')?.dirty &&form.get('beneficiario.birthPlaceBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.birthPlaceBeneficiario')?.dirty &&form.get('beneficiario.birthPlaceBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.birthPlaceBeneficiario')?.dirty &&form.get('beneficiario.birthPlaceBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.birthPlaceBeneficiario')?.dirty &&form.get('beneficiario.birthPlaceBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="birthProvinceBeneficiario">Provincia</label>
+                                <select id="birthProvinceBeneficiario" formControlName="birthProvinceBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.birthProvinceBeneficiario')?.dirty &&form.get('beneficiario.birthProvinceBeneficiario')?.errors }">
+                                    <option *ngFor="let provincia of province" [value]="provincia.code">
+                                        {{ provincia.name }}
+                                    </option>
+                                </select>
+                                <div class="error-message"
+                                    *ngIf="form.get('beneficiario.birthProvinceBeneficiario')?.dirty &&form.get('beneficiario.birthProvinceBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.birthProvinceBeneficiario')?.dirty &&form.get('beneficiario.birthProvinceBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentInBeneficiario">Residente in</label>
+                                <input id="residentInBeneficiario" type="text" formControlName="residentInBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.residentInBeneficiario')?.dirty &&form.get('beneficiario.residentInBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.residentInBeneficiario')?.dirty &&form.get('beneficiario.residentInBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.residentInBeneficiario')?.dirty &&form.get('beneficiario.residentInBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.residentInBeneficiario')?.dirty &&form.get('beneficiario.residentInBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentStreetBeneficiario">Via</label>
+                                <input id="residentStreetBeneficiario" type="text"
+                                    formControlName="residentStreetBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.residentStreetBeneficiario')?.dirty &&form.get('beneficiario.residentStreetBeneficiario')?.errors }">
+                                <div class="error-message"
+                                    *ngIf="form.get('beneficiario.residentStreetBeneficiario')?.dirty &&form.get('beneficiario.residentStreetBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.residentStreetBeneficiario')?.dirty &&form.get('beneficiario.residentStreetBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.residentStreetBeneficiario')?.dirty &&form.get('beneficiario.residentStreetBeneficiario')?.hasError('pattern')">
+                                        Inserisci solo lettere e spazi.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residentCivicBeneficiario">Numero civico</label>
+                                <input id="residentCivicBeneficiario" type="text"
+                                    formControlName="residentCivicBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.residentCivicBeneficiario')?.dirty &&form.get('beneficiario.residentCivicBeneficiario')?.errors }">
+                                <div class="error-message"
+                                    *ngIf="form.get('beneficiario.residentCivicBeneficiario')?.dirty &&form.get('beneficiario.residentCivicBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.residentCivicBeneficiario')?.dirty &&form.get('beneficiario.residentCivicBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <!--span *ngIf="form.get('beneficiario.residentCivicBeneficiario')?.dirty &&form.get('beneficiario.residentCivicBeneficiario')?.hasError('pattern')">
+                                            Inserisci solo lettere e spazi.
+                                        </span-->
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="residenceCapBeneficiario">C.A.P.</label>
+                                <input id="residenceCapBeneficiario" type="text" formControlName="residenceCapBeneficiario"
+                                    maxlength="5"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.residenceCapBeneficiario')?.dirty &&form.get('beneficiario.residenceCapBeneficiario')?.errors }">
+                                <div class="error-message"
+                                    *ngIf="form.get('beneficiario.residenceCapBeneficiario')?.dirty &&form.get('beneficiario.residenceCapBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.residenceCapBeneficiario')?.dirty &&form.get('beneficiario.residenceCapBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.residenceCapBeneficiario')?.dirty &&form.get('beneficiario.residenceCapBeneficiario')?.hasError('pattern')">
+                                        Inserisci un CAP valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="townHallBeneficiario">Municipio</label>
+                                <input id="townHallBeneficiario" type="text" formControlName="townHallBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.townHallBeneficiario')?.dirty &&form.get('beneficiario.townHallBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.townHallBeneficiario')?.dirty &&form.get('beneficiario.townHallBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.townHallBeneficiario')?.dirty &&form.get('beneficiario.townHallBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.townHallBeneficiario')?.dirty &&form.get('beneficiario.townHallBeneficiario')?.hasError('pattern')">
+                                        Inserisci un Municipio valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="emailBeneficiario">E-mail</label>
+                                <input id="emailBeneficiario" type="text" formControlName="emailBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.emailBeneficiario')?.dirty &&form.get('beneficiario.emailBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.emailBeneficiario')?.dirty &&form.get('beneficiario.emailBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.emailBeneficiario')?.dirty &&form.get('beneficiario.emailBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.emailBeneficiario')?.dirty &&form.get('beneficiario.emailBeneficiario')?.hasError('pattern')">
+                                        Inserisci un Email valida.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="pecBeneficiario">Pec</label>
+                                <input id="pecBeneficiario" type="text" formControlName="pecBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.pecBeneficiario')?.dirty &&form.get('beneficiario.pecBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.pecBeneficiario')?.dirty &&form.get('beneficiario.pecBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.pecBeneficiario')?.dirty &&form.get('beneficiario.pecBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.pecBeneficiario')?.dirty &&form.get('beneficiario.pecBeneficiario')?.hasError('pattern')">
+                                        Inserisci una PEC valida.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="cfBeneficiario">Codice fiscale</label>
+                                <input id="cfBeneficiario" type="text" formControlName="cfBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.cfBeneficiario')?.dirty &&form.get('beneficiario.cfBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.cfBeneficiario')?.dirty &&form.get('beneficiario.cfBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.cfBeneficiario')?.dirty &&form.get('beneficiario.cfBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.cfBeneficiario')?.dirty &&form.get('beneficiario.cfBeneficiario')?.hasError('pattern')">
+                                        Inserisci un C.F. valido.
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="form-single-input">
+                                <label for="phoneNumberBeneficiario">Telefono</label>
+                                <input id="phoneNumberBeneficiario" type="text" formControlName="phoneNumberBeneficiario"
+                                    [ngClass]="{'input-error' : form.get('beneficiario.phoneNumberBeneficiario')?.dirty &&form.get('beneficiario.phoneNumberBeneficiario')?.errors }">
+                                <div class="error-message" *ngIf="form.get('beneficiario.phoneNumberBeneficiario')?.dirty &&form.get('beneficiario.phoneNumberBeneficiario')?.errors">
+                                    <span *ngIf="form.get('beneficiario.phoneNumberBeneficiario')?.dirty &&form.get('beneficiario.phoneNumberBeneficiario')?.hasError('required')">
+                                        {{ campoObbligatorioMessage }}
+                                    </span>
+                                    <span *ngIf="form.get('beneficiario.phoneNumberBeneficiario')?.dirty &&form.get('beneficiario.phoneNumberBeneficiario')?.hasError('pattern')">
+                                        Inserisci un numero valido.
+                                    </span>
+                                </div>
+                            </div>
+    
+    
+                        </div>
+                    </div>
+
+                
+                    <div class="form-section"  *ngIf="currentStep == 3">
+                        <h3>Generalità sui lavori</h3>
+                        <div formGroupName="generalitaLavori" class="section-form section-generalita-lavori">
+
+                            <div class="form-single-input">
+                                
+                                <label for="contributo">Contributo (vedi nota 3) previsto dall'art. 9 della Legge 9 gennaio
+                                    1989 n. 13, prevedendo una spesa di:</label>
+                             <div class="contributo-euro">
+                                    <input id="contributo" type="text" formControlName="contributo"
+                                        [ngClass]="{'input-error' : form.get('generalitaLavori.contributo')?.dirty && form.get('generalitaLavori.contributo')?.errors }">
+                            </div>
+                                    <div class="error-message"
+                                        *ngIf="form.get('generalitaLavori.contributo')?.dirty && form.get('generalitaLavori.contributo')?.errors">
+                                        <span
+                                            *ngIf="form.get('generalitaLavori.contributo')?.dirty &&form.get('generalitaLavori.contributo')?.hasError('required')">
+                                            {{ campoObbligatorioMessage }}
+                                        </span>
+                                        <span
+                                            *ngIf="form.get('generalitaLavori.contributo')?.dirty && form.get('generalitaLavori.contributo')?.hasError('pattern')">
+                                            E' consentito inserire solo due cifre dopo la virgola.
+                                        </span>
+                                    </div> 
+                                </div>
+                           
+                                <p>
+                                    Per la realizzazione della seguente opera (o più opere funzionalmente connesse) (vedi
+                                    nota 4), da realizzarsi
+                                    (ai sensi del D.M. LL.PP. 14/06/1989 n. 236: Prescrizioni tecniche necessarie a
+                                    garantire l'accessibilità, l'adattabilità
+                                    e la visitabilità degli edifici privati ai fini del superamento e dell'eliminazione
+                                    delle barriere architettoniche)
+                                    nell'immobile sopra indicato, al fine di rimuovere una o più barriere che creano
+                                    difficoltà:
+                                </p>
+                           
+                            <h4>A — DI ACCESSO ALL'IMMOBILE O ALLA SINGOLA UNITÀ IMMOBILIARE:</h4>
+                            <div class="form-single-input type-checkbox">
+                                <input id="rampaAccesso" type="checkbox" formControlName="rampaAccesso">
+                                <label for="rampaAccesso">Rampa di accesso</label>
+                            </div>
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input id="servoscala" type="checkbox" formControlName="servoscala">
+                                    <label for="servoscala">Servoscala</label> 
+                                    <label *ngIf="!isServoScalaValid" class="color-red">Selezionare piattaforma e/o poltroncina</label>
+                                </div>
+                                <div class="flex-dir-col sub-check">
+                                    <div>
+                                        <input id="piattaforma" type="checkbox" formControlName="piattaforma">
+                                        <label for="piattaforma">Piattaforma</label>
+                                    </div>
+                                    <div>
+                                        <input id="poltroncina" type="checkbox" formControlName="poltroncina">
+                                        <label for="poltroncina">Poltroncina</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="piattaformaElevatore" type="checkbox" formControlName="piattaformaElevatore">
+                                <label for="piattaformaElevatore">Piattaforma o Elevatore</label>
+                            </div>
+    
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input id="ascensore" type="checkbox" formControlName="ascensore">
+                                    <label for="ascensore">Ascensore</label>
+                                    <label *ngIf="!isAscensoreValid" class="color-red">Selezionare installazione e/o adeguamento</label>
+    
+                                </div>
+                                <div class="flex-dir-col sub-check">
+                                    <div>
+                                        <!-- modificare installazione sul BE -->
+                                        <input id="installazipne" type="checkbox" formControlName="installazipne">
+                                        <label for="installazipne">Installazione</label>
+                                    </div>
+                                    <div>
+                                        <input id="adeguamento" type="checkbox" formControlName="adeguamento">
+                                        <label for="adeguamento">Adeguamento</label>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="ampliamentoPorteIngresso" type="checkbox"
+                                    formControlName="ampliamentoPorteIngresso">
+                                <label for="ampliamentoPorteIngresso">Ampliamento porte d'ingresso</label>
+                            </div>
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="adeguamentoPercorsiOrizzontali" type="checkbox"
+                                    formControlName="adeguamentoPercorsiOrizzontali">
+                                <label for="adeguamentoPercorsiOrizzontali">Adeguamento percorsi orizzontali
+                                    condominiali</label>
+                            </div>
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="installazioneDispositiviPer_non_vedenti" type="checkbox"
+                                    formControlName="installazioneDispositiviPer_non_vedenti">
+                                <label for="installazioneDispositiviPer_non_vedenti">Installazione dispositivi di
+                                    segnalazione per favorire la mobilità dei non vedenti all'interno degli edifici</label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="installazioneDispositiviPerPorta" type="checkbox"
+                                    formControlName="installazioneDispositiviPerPorta">
+                                <label for="installazioneDispositiviPerPorta">Installazione meccanismi di apertura e
+                                    chiusura porte</label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="acquistoBenePerImpedimenti" type="checkbox"
+                                    formControlName="acquistoBenePerImpedimenti">
+                                <label for="acquistoBenePerImpedimenti">Acquisto bene mobile non elettrico idoneo al
+                                    raggiungimento del medesimo fine, essendo l'opera non realizzabile per impedimenti
+                                    materiali o giuridici</label>
+                            </div>
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input (change)="toggleEditFieldGeneralitaLavori($event, 'altro', 'text' )" id="altro" type="checkbox" formControlName="altro">
+                                    <label for="altro">Altro</label>
+                                </div>
+                                <div  class="sub-check">
+                                    <textarea  id="text" type="text" formControlName="text" [disabled]="isDisabledFieldGeneralitaLavori('text')"></textarea>
+                                </div>
+                            </div>
+                            <h4>B — DI FRUIBILITA' E VISIBILITA' DELL'ALLOGGIO:</h4>
+                            <div class="form-single-input type-checkbox">
+                                <input id="adeguamentoSpaziInterniAlloggio" type="checkbox"
+                                    formControlName="adeguamentoSpaziInterniAlloggio">
+                                <label for="adeguamentoSpaziInterniAlloggio">Adeguamento degli spazi interni all'alloggio
+                                    (bagno, cucina, camere, etc.)</label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="adeguamentoPercorsiOrizzontaliFruibilita" type="checkbox"
+                                    formControlName="adeguamentoPercorsiOrizzontaliFruibilita">
+                                <label for="adeguamentoPercorsiOrizzontaliFruibilita">Adeguamento dei percorsi orizzontali e/o
+                                    verticali interni all'alloggio</label>
+                            </div>
+    
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input (change)="toggleEditFieldGeneralitaLavori($event, 'altroFruibilita', 'textFruibilita' )" id="altroFruibilita" type="checkbox" formControlName="altroFruibilita">
+                                    <label for="altroFruibilita">Altro</label>
+                                </div>
+                                <div class="sub-check">
+                                    <textarea id="textFruibilita" type="text" formControlName="textFruibilita"  [disabled]="isDisabledFieldGeneralitaLavori('textFruibilita')"></textarea>
+                                </div>
+                            </div>
+    
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-section"  *ngIf="currentStep == 4">
+                        <h3>Dichiarazione</h3>
+                        <div formGroupName="dichiara" class="section-form section-dichiara">
+                            <h3 for="">Di essere:</h3>
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="potestaTutela" type="checkbox" formControlName="potestaTutela">
+                                <label for="potestaTutela">Esercente la potestà o tutela nei confronti del portatore di
+                                    handicap</label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="aCaricoPortatoHandicap" type="checkbox" formControlName="aCaricoPortatoHandicap">
+                                <label for="aCaricoPortatoHandicap">Avente a carico il soggetto portatore di
+                                    handicap
+                                </label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="unicoProprietario" type="checkbox" formControlName="unicoProprietario">
+                                <label for="unicoProprietario">
+                                    Unico Proprietario
+                                </label>
+                            </div>
+    
+    
+    
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input (change)="toggleEditField('dichiara',['amministratoreCondominio','amministratoreCondominioRecapito'],'amministratoreCondominioCheck')" id="amministratoreCondominioCheck" type="checkbox"
+                                        formControlName="amministratoreCondominioCheck">
+                                    <label for="amministratoreCondominioCheck">Amministratore condominio:</label>
+                                </div>
+                                <div class="sub-input-text">
+                                    <div>
+                                        <label for="amministratoreCondominio">P.I./C.F. Condominio:</label>
+                                        <input id="amministratoreCondominio" type="text"
+                                            formControlName="amministratoreCondominio">
+                                    </div>
+                                    <div>
+                                        <label for="amministratoreCondominioRecapito">Che le comunicazioni devono essere
+                                            inviate presso il seguente recapito:</label>
+                                        <input id="amministratoreCondominioRecapito" type="text"
+                                            formControlName="amministratoreCondominioRecapito">
+                                    </div>
+                                    <strong>
+                                        Ogni eventuale variazione della residenza e del recapito deve essere tempestivamente comunicata all'Ufficio L. 13/89 del Dipartimento IX
+                                    </strong>
+                                </div>
+                            </div>
+    
+    
+    
+    
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="responsabileCentroIstituto" type="checkbox"
+                                    formControlName="responsabileCentroIstituto">
+                                <label for="responsabileCentroIstituto">Responsabile del centro o istituto ex art. 2 Legge
+                                    27/02/1989 n. 62</label>
+                            </div>
+                            <!-- METTERE LE LETTERE DEI PARAGRAFI ES (B.) -->
+    
+    
+                            <h3 for="">Dichiara inoltre</h3>
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-top">
+                                    <input (change)="toggleEditField('dichiara','B_barriereArchitettonicheDescrizione','B_barriereArchitettonicheCheck')" id="B_barriereArchitettonicheCheck" type="checkbox"
+                                        formControlName="B_barriereArchitettonicheCheck">
+                                    <label for="B_barriereArchitettonicheCheck">Che nell'immobile da lui abitato esistono le
+                                        seguenti barriere architettoniche:</label>
+                                </div>
+                                <div class="sub-check">
+                                    <textarea id="B_barriereArchitettonicheDescrizione" type="text"
+                                        formControlName="B_barriereArchitettonicheDescrizione">
+                                    </textarea>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-center">
+                                    <input (change)="toggleEditField('dichiara','C_difficoltaDescrizione','C_difficoltaCheck')" id="C_difficoltaCheck" type="checkbox" formControlName="C_difficoltaCheck">
+                                    <label for="C_difficoltaCheck">Che comportano le seguenti difficoltà:</label>
+                                </div>
+                                <div class="sub-check">
+                                    <textarea id="C_difficoltaDescrizione" type="text"
+                                        formControlName="C_difficoltaDescrizione">
+                                    </textarea>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-top">
+                                    <input (change)="toggleEditField('dichiara','D_operePerRimuovereOstacoliDescrizione','D_operePerRimuovereOstacoliCheck')" id="D_operePerRimuovereOstacoliCheck" type="checkbox"
+                                        formControlName="D_operePerRimuovereOstacoliCheck">
+                                    <label for="D_operePerRimuovereOstacoliCheck">Che al fine di rimuovere tali ostacoli
+                                        intende
+                                        realizzare la/le seguente/i opera/e:</label>
+                                </div>
+                                <div class="sub-check">
+                                    <textarea id="D_operePerRimuovereOstacoliDescrizione" type="text"
+                                        formControlName="D_operePerRimuovereOstacoliDescrizione">
+                                    </textarea>
+                                </div>
+                            </div>
+    
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="E_opereNonEsistenzaOInEsecuzione" type="checkbox"
+                                    formControlName="E_opereNonEsistenzaOInEsecuzione">
+                                <label for="E_opereNonEsistenzaOInEsecuzione">
+                                    CHE TALI OPERE NON SONO ESISTENTI O IN CORSO DI ESECUZIONE;
+                                </label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="F_realizzazione" type="checkbox" formControlName="F_realizzazione">
+                                <label for="F_realizzazione">
+                                    Che per la realizzazione di tali opere non gli è stato concesso altro contributo il cui
+                                    importo,
+                                    cumulato a quello richiesto ai sensi della legge 13/89, non supera la spesa
+                                    preventivata.
+                                </label>
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="G_rispetto_normative" type="checkbox" formControlName="G_rispetto_normative">
+                                <label for="G_rispetto_normative">
+                                    Che l'esecuzione delle opere di abbattimento delle barriere architettoniche avverrà nel
+                                    rispetto della
+                                    normativa edilizia vigente e nel rispetto del:
+                                    - Decreto Ministeriale LL.PP. 14/06/1989 n. 236 — Regolamento di attuazione dell'art. 1
+                                    della Legge
+                                    09/01/1989 n. 13 "Prescrizioni tecniche necessarie a garantire l'accessibilità,
+                                    l'adattabilità e la
+                                    visibilità degli edifici privati".
+                                </label>
+                            </div>
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-top">
+                                    <input (change)="toggleEditField('dichiara',['H_regolare_licenza_ediliziaNumero','H_regolare_licenza_ediliziaData'],'H_regolare_licenza_ediliziaCheck')" id="H_regolare_licenza_ediliziaCheck" type="checkbox"
+                                        formControlName="H_regolare_licenza_ediliziaCheck" 
+                                        [ngClass]="{'input-error' : form.get('dichiara.H_regolare_licenza_ediliziaData')?.errors }">
+                                            <div class="error-message" *ngIf="form.get('dichiara.H_regolare_licenza_ediliziaData')?.errors">
+                                                <span *ngIf="form.get('dichiara.H_regolare_licenza_ediliziaData')?.hasError('pattern')">
+                                                    Inserisci numeri e '-' (gg-mm-aaaa)</span>
+                                                </div>
+                                    <label for="H_regolare_licenza_ediliziaCheck">Che l'immobile, per il quale è stato
+                                        richiesto il contributo, è stato edificato con regolare licenza edilizia</label>
+                                </div>
+                                <div class="sub-input-text">
+                                    <div>
+                                        <label for="H_regolare_licenza_ediliziaNumero">n:</label>
+                                        <input id="H_regolare_licenza_ediliziaNumero" type="text"
+                                            formControlName="H_regolare_licenza_ediliziaNumero">
+                                    </div>
+                                    <div>
+                                        <label for="amministratoreCondominioRecapito">del:</label>
+                                        <input id="H_regolare_licenza_ediliziaData" type="text"
+                                            formControlName="H_regolare_licenza_ediliziaData">
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+    
+                            <div class="form-single-input type-checkbox flex-dir-col">
+                                <div class="flex-align-top">
+                                    <input (change)="toggleEditField('dichiara',['I_concessione_in_sanatoriaNumero','I_concessione_in_sanatoriaData'],'I_concessione_in_sanatoriaCheck')" id="I_concessione_in_sanatoriaCheck" type="checkbox"
+                                        formControlName="I_concessione_in_sanatoriaCheck">
+                                    <label for="I_concessione_in_sanatoriaCheck">
+                                        Che l'immobile, per il quale è stato richiesto il contributo ha ottenuto concessione
+                                        in
+                                        sanatoria ai sensi
+                                        della legge 47/85 e/o 724/94 e/o 326/2003
+                                    </label>
+                                </div>
+                                <div class="sub-input-text">
+                                    <div>
+                                        <label for="I_concessione_in_sanatoriaNumero">n:</label>
+                                        <input id="I_concessione_in_sanatoriaNumero" type="text"
+                                            formControlName="I_concessione_in_sanatoriaNumero">
+                                    </div>
+                                    <div>
+                                        <label for="I_concessione_in_sanatoriaData">del:</label>
+                                        <input id="I_concessione_in_sanatoriaData" type="text"
+                                            formControlName="I_concessione_in_sanatoriaData"
+                                            [ngClass]="{'input-error' : form.get('dichiara.I_concessione_in_sanatoriaData')?.errors }">
+                                            <div class="error-message" *ngIf="form.get('dichiara.I_concessione_in_sanatoriaData')?.errors">
+                                                <span *ngIf="form.get('dichiara.I_concessione_in_sanatoriaData')?.hasError('pattern')">
+                                                    Inserisci numeri e '-' (gg-mm-aaaa)</span>
+                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+    
+    
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="L_non_pbblica" type="checkbox" formControlName="L_non_pbblica">
+                                <label for="L_non_pbblica">
+                                    Che non sono edifici di proprietà pubblica
+                                </label>
+                                <label *ngIf="!isL_non_pubblicaValid" class="color-red">Selezionare la voce</label>
+    
+                            </div>
+    
+                            <div class="form-single-input type-checkbox">
+                                <input id="M_non_futura_residenza" type="checkbox" formControlName="M_non_futura_residenza">
+                                <label for="M_non_futura_residenza">
+                                    Che non sono immobili di futura residenza o in corso di costruzione
+                                </label>
+                                <label *ngIf="!isM_non_futura_residenzaValid" class="color-red">Selezionare la voce</label>
+    
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="N_approvate_condominio" type="checkbox" formControlName="N_approvate_condominio">
+                                <label for="N_approvate_condominio">
+                                    Che le opere da realizzare sono state approvate in sede di assemblea condominiale
+                                </label>
+                                <label *ngIf="!isN_approvate_condominioValid" class="color-red">Selezionare la voce</label>
+    
+                            </div>
+                            <div class="form-single-input type-checkbox">
+                                <input id="O_dichiarazioni_veritiere" type="checkbox"
+                                    formControlName="O_dichiarazioni_veritiere">
+                                <label for="O_dichiarazioni_veritiere">
+                                    Di essere a conoscenza che:
+    
+                                    in caso di dichiarazioni non veritiere i dichiaranti decadono dai benefici eventualmente
+                                    conseguiti
+                                    con la presente istanza;
+                                    l'eventuale inserimento della domanda in graduatoria ed il successivo finanziamento
+                                    della stessa da
+                                    parte della Regione Lazio non costituiscono titolo all'erogazione del contributo, in
+                                    quanto
+                                    l'erogazione del contributo regionale da parte del Comune sarà subordinata alla
+                                    sussistenza dei
+                                    requisiti e avverrà sulla base della regolare documentazione attestante le spese
+                                    (fatture
+                                    quietanzate).
+                                </label>
+                                <label *ngIf="!isO_dichiarazioni_veritiereValid" class="color-red">Selezionare la voce</label>
+                            </div>     
+                            <div class="form-single-input type-checkbox">
+                                <input id="P_acceptance_privacy" type="checkbox"
+                                    formControlName="P_acceptance_privacy" [disabled]="isP_acceptance_privacyDisabled">
+                                <label for="P_acceptance_privacy">
+                                    Di aver letto e accettato il modulo privacy. <a (click)="downloadFile('isCheckedModuliIstruttoria')">Scarica qui</a>
+                                </label>
+                                <label *ngIf="!isP_acceptance_privacyValid" class="color-red">Selezionare la voce</label>
+                            </div>                            
+                           
+    
+    
+                        </div>
+                    </div>
+
+                    <div class="form-section"  *ngIf="currentStep == 5">
+                        <h3>Allegati</h3>
+                        <div class="container-form">
+                            <div class="inputs">
+                                <label for="test1">Certificato d'invalidità rilasciato da una commissione medica della ASL in
+                                    originale o fotocopia autenticata
+                                    o autocertificata attestante l'invalidità totale con difficoltà/impossibilità di
+                                    deambulazione - Mod. A/SAN o
+                                    la cecità assoluta (che permette l'inserimento dell'istanza nella graduatoria con
+                                    priorità)</label>
+                                <app-input-file-button idInput='test1' emptyInputString='Carica'
+                                    fileFormName = "certificato_invalidita_deambulazione_cecita_totale"
+                                    (fileSelected)='getFile($event, "certificato_invalidita_deambulazione_cecita_totale")'>></app-input-file-button>
+                            </div>
+                            <div class="inputs">
+                                <label for="test2">Certificato d'invalidità rilasciato da una commissione medica della ASL
+                                    attestante
+                                    l'handicap con
+                                    difficoltà/impossibilità deambulatoria parziale (che permette l'inserimento dell'istanza
+                                    nella graduatoria senza
+                                    priorità)</label>
+                                <app-input-file-button idInput='test2' emptyInputString='Carica'
+                                    fileFormName = "certificato_invalidita_parziale"
+                                    (fileSelected)='getFile($event, "certificato_invalidita_parziale")'>></app-input-file-button>
+                            </div>
+                            <div class="inputs">
+                                <label for="test3">Copia del preventivo di spesa con il dettaglio delle opere di abbattimento
+                                    barriere architettoniche e nel caso di
+                                    rampe produrre relazione tecnica ed elaborati grafici</label>
+                                <app-input-file-button idInput='test3' emptyInputString='Carica'
+                                    fileFormName = "preventivo_spesa_dettaglio_opere"
+                                    (fileSelected)='getFile($event, "preventivo_spesa_dettaglio_opere")'>></app-input-file-button>
+                            </div>
+                            <div class="inputs">
+                                <label for="test4">Copia dei documenti di identità del richiedente e dell'avente diritto al
+                                    contributo;</label>
+                                <app-input-file-button idInput='test4' emptyInputString='Carica'
+                                    fileFormName = "documento_identita"
+                                    (fileSelected)='getFile($event, "documento_identita")'>></app-input-file-button>
+                            </div>
+        
+        
+                            <div class="inputs">
+                                <label for="test6">Copia del verbale di assemblea condominiale nel caso in cui le opere da
+                                    realizzare
+                                    riguardino le parti
+                                    condominiali dell'immobile;</label>
+                                <app-input-file-button idInput='test6' emptyInputString='Carica'
+                                    fileFormName = "verbale_assemblea_condominiale"
+                                    (fileSelected)='getFile($event, "verbale_assemblea_condominiale")'>></app-input-file-button>
+                            </div>
+        
+                            <div class="inputs">
+                                <label for="test6">Ricevuta marca da bollo</label>
+                                <app-input-file-button idInput='test7' emptyInputString='Carica'
+                                    fileFormName = "ricevuta_marca_da_bollo"
+                                    (fileSelected)='getFile($event, "ricevuta_marca_da_bollo")'></app-input-file-button>
+                            </div>
+        
+                        </div>
+                    </div>
+             </form>
+        <!-- <app-expandable-section title="Allegati">
+                <div class="container-form">
+                    <div class="inputs">
+                        <label for="test1">Certificato d'invalidità rilasciato da una commissione medica della ASL in
+                            originale o fotocopia autenticata
+                            o autocertificata attestante l'invalidità totale con difficoltà/impossibilità di
+                            deambulazione - Mod. A/SAN o
+                            la cecità assoluta (che permette l'inserimento dell'istanza nella graduatoria con
+                            priorità)</label>
+                         <input class="input-allegato" type="file" placeholder="Inserisci l'allegato"> --
+                        <app-input-file-button idInput='test1' emptyInputString='Carica'
+                            [selectedRow]="selectedRow" 
+                            fileFormName = "certificato_invalidita_deambulazione_cecita_totale"
+                            (fileSelected)='getFile($event, "certificato_invalidita_deambulazione_cecita_totale")'>></app-input-file-button>
+                    </div>
+                    <div class="inputs">
+                        <label for="test2">Certificato d'invalidità rilasciato da una commissione medica della ASL
+                            attestante
+                            l'handicap con
+                            difficoltà/impossibilità deambulatoria parziale (che permette l'inserimento dell'istanza
+                            nella graduatoria senza
+                            priorità)</label>
+                        <app-input-file-button idInput='test2' emptyInputString='Carica'
+                        [selectedRow]="selectedRow" 
+                            fileFormName = "certificato_invalidita_parziale"
+                            (fileSelected)='getFile($event, "certificato_invalidita_parziale")'>></app-input-file-button>
+                    </div>
+                    <div class="inputs">
+                        <label for="test3">Copia del preventivo di spesa con il dettaglio delle opere di abbattimento
+                            barriere architettoniche e nel caso di
+                            rampe produrre relazione tecnica ed elaborati grafici</label>
+                        <app-input-file-button idInput='test3' emptyInputString='Carica'
+                        [selectedRow]="selectedRow" 
+                            fileFormName = "preventivo_spesa_dettaglio_opere"
+                            (fileSelected)='getFile($event, "preventivo_spesa_dettaglio_opere")'>></app-input-file-button>
+                    </div>
+                    <div class="inputs">
+                        <label for="test4">Copia dei documenti di identità del richiedente e dell'avente diritto al
+                            contributo;</label>
+                        <app-input-file-button idInput='test4' emptyInputString='Carica'
+                        [selectedRow]="selectedRow" 
+                            fileFormName = "documento_identita"
+                            (fileSelected)='getFile($event, "documento_identita")'>></app-input-file-button>
+                    </div>
+
+
+                    <div class="inputs">
+                        <label for="test6">Copia del verbale di assemblea condominiale nel caso in cui le opere da
+                            realizzare
+                            riguardino le parti
+                            condominiali dell'immobile;</label>
+                        <app-input-file-button idInput='test6' emptyInputString='Carica'
+                        [selectedRow]="selectedRow" 
+                            fileFormName = "verbale_assemblea_condominiale"
+                            (fileSelected)='getFile($event, "verbale_assemblea_condominiale")'>></app-input-file-button>
+                    </div>
+
+                    <div class="inputs">
+                        <label for="test6">Ricevuta marca da bollo</label>
+                        <app-input-file-button idInput='test7' emptyInputString='Carica'
+                            [selectedRow]="selectedRow" 
+                            fileFormName = "ricevuta_marca_da_bollo"
+                            (fileSelected)='getFile($event, "ricevuta_marca_da_bollo")'></app-input-file-button>
+                    </div>
+
+                </div>
+            </app-expandable-section> -->
+
+        <!-- </div> -->
+
+
+
+        <div class="container-button container-button-right">
+            
+            <app-button (click)="backToRichiestaDomanda()">Torna alle mie domande</app-button>
+            <app-button *ngIf="currentStep>=2" (click)="previousStep()">INDIETRO</app-button>
+            <app-button *ngIf="currentStep<=4" [disabled]="currentStep === 5" (click)="nextStep()">PROSEGUI</app-button>
+            <app-button (click)="createDomanda(domandaStateEnum.BOZZA)">SALVA BOZZA</app-button>
+            <app-button *ngIf="currentStep==5" (click)="createDomanda(domandaStateEnum.VERIFICA)">INVIA</app-button>
+            
+        </div>
+
+        <div class="form-note">
+            <ol>
+                <li>
+                    Si deve indicare l'effettiva e stabile dimora del richiedente che può anche non coincidere con
+                    la sua residenza anagrafica
+                </li>
+                <li>
+                    Barrare se si abita l'immobile a titolo diverso dalla proprietà o locazione (convivenza, ospitalità,
+                    comodato, etc.)
+                </li>
+                <li>
+                    Per costi fino ad E 4.000,00 il contributo è concesso in misura pari alla spesa effettivamente
+                    sostenuta
+                    <ul>
+                        <li>
+                            Per costi da E 4.000,00 ad E 19.500,00 il contributo è aumentato del 25% della spesa
+                            effettivamente
+                            sostenuta: ESEMPIO: per una spesa di E 10.000,00 il contributo è pari ad 6 4.000.00 più il
+                            25% di e
+                            6.000,00 pari ad 65.500,00;
+                        </li>
+                        <li>
+                            Per costi da E 19.500,00 ad e 52.000,00 il contributo è aumentato di un ulteriore 5%:
+                            ESEMPIO: per una
+                            spesa di E 40.000,00 il contributo è pari ad 64.000,00 + il 25% di E 15.500,00 + il 5% di E
+                            20.500,00 cioè
+                            di 64.000,00 + 63.875,00 + E 1.025,00 ovvero per un contributo pari ad 68.900,00;
+                        </li>
+                        <li>
+                            Per costi superiori a 652.000,00 il contributo è pari a 69.500,00.
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    Per opere funzionalmente connesse si intendono quelle volte alla rimozione di barriere
+                    architettoniche che
+                    ostacolano la stessa/unzione (esempio: funzione di accesso all 'immobile, funzione di visibilità
+                    dell 'alloggio).
+                    Qualora si intenda realizzare più opere, se queste sono funzionalmente connesse, il richiedente deve
+                    fórmulare
+                    una unica domanda essendo unico il contributo, che, a sua volta verrà computato in base alla spesa
+                    complessiva.
+                    Parimenti, qualora di un'opera o di più opere funzionalmente connesse possano fruire più portatori
+                    di handicap,
+                    deve essere presentata una sola domanda da uno dei portatori di handicap, in quanto uno solo è il
+                    contributo
+                    concesso.<br>
+                    Se invece le opere riguardano l'abbattimento di barriere che ostacolano funzioni tra loro
+                    diverse:<br>
+                    <u> esempio di funzione di accesso</u>: installazione di ascensore<br>
+                    <u>esempio di funzione di visitabilità</u>: adeguamento servizi igienici<br>
+                    l'istante deve presentare una domanda per ognuna di esse e può ottenere quindi più di un
+                    contributo.<br>
+                    Si precisa inoltre che i contributi ai sensi della Legge 13/89 sono cumulabili con altri concessi ai
+                    sensi di altra
+                    legge per la realizzazione della stessa opera, _fermo restando che l'importo complessivo dei
+                    contributi non può
+                    superare la spesa effettivamente sostenuta.
+                </li>
+                <li>
+                    Specificare l'opera da realizzare.
+                </li>
+                <li>
+                    Il soggetto avente diritto al contributo può non coincidere con il portatore di handicap qualora
+                    questi non
+                    provveda alla realizzazione delle opere a proprie spese.
+                </li>
+                <li>
+                    Il termine per la presentazione della domanda e della integrazione della documentazione è fissato al
+                    1° marzo di
+                    ciascun anno.
+                </li>
+            </ol>
+
+        </div>
+    </div>
+</div>
+<div *ngIf="isCallingServer" class="loading-data">
+    <div class="waiting-popup">
+        Attendere il caricamento...
+    </div>
+</div>

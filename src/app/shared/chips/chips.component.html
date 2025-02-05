@@ -1,0 +1,9 @@
+<div class="boxState"
+[class.boxStateApprovata]="state==stateEnum.APPROVATA"
+[class.boxStateVerifica]="state==stateEnum.VERIFICA"
+[class.boxStateInvio]="state==stateEnum.INVIO"
+[class.boxStateRespinta]="state==stateEnum.RESPINTA"
+[class.boxStateDocumenti]="state==stateEnum.DOCUMENTI"
+[class.boxStateBozza]="state==stateEnum.BOZZA">
+  {{ state }}
+</div>

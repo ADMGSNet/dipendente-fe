@@ -1,0 +1,187 @@
+/* You can add global styles to this file, and also import other style files */
+
+/* You can add global styles to this file, and also import other style files */
+@use "assets/styles/variables" as variable;
+@use "assets/styles/colors.scss";
+@use "assets/styles/dimensions.scss";
+@use "assets/styles/flex-box.scss";
+@use "assets/styles/margins.scss";
+@use "assets/styles/paddings.scss";
+@use "assets/font/urbs.scss";
+@use "assets/font/montserrat.scss";
+@use "assets/styles/font-awasome4.min.scss";
+
+// 'Montserrat-Regular'
+* {
+  font-family: "UrbsDisplay-Regular";
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  //margin: 0px;
+  //width: 100vw;
+  margin: 0 0 0 0;
+}
+
+button {
+  cursor: pointer;
+}
+
+button.primary-button {
+  border: 1px solid white;
+  background-color: transparent;
+  padding: 10px;
+  color: white;
+  border-radius: 15px;
+  font-size: larger;
+}
+
+button.primary-button:hover {
+  border: 0px solid rgb(12, 15, 142);
+  background-color: rgb(12, 15, 142);
+  padding: 10px;
+  color: rgb(165, 23, 23);
+  border-radius: 15px;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font-size-large {
+  font-size: large;
+}
+
+input {
+  cursor: pointer;
+}
+
+table {
+  border-collapse: collapse;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.h1-title {
+  font-size: 32px;
+  line-height: 38px;
+  font-weight: 700;
+}
+
+p {
+  margin: 0 0 15px 0;
+  line-height: 20px;
+}
+
+section {
+  max-width: 1651px;
+  width: 100%;
+  margin: 0 auto;
+
+  @media screen and (max-width: variable.$max-width-pointbreak) {
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .wrapper-sommario {
+    max-width: 650px;
+  }
+
+  &.section-agevolazione {
+    background-color: variable.$bg-sezioni;
+    max-width: 100%;
+    padding: 50px 0;
+    h3 {
+      margin: 0 0 40px 0;
+    }
+
+    .wrapper-agevolazioni {
+      max-width: 1651px;
+      width: 100%;
+      margin: 0 auto;
+
+      @media screen and (max-width: variable.$max-width-pointbreak) {
+        padding-left: 20px;
+        box-sizing: border-box;
+      }
+    }
+  }
+}
+
+.block-agevolazione {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  font-size: x-large;
+  font-weight: bolder;
+  background-color: variable.$bg-sezioni;
+  @media screen and (max-width: variable.$screen-responsive) {
+    flex-direction: column;
+    //margin-bottom: 20px;
+  }
+}
+
+.block-text-agevolazione {
+  font-size: medium;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+
+  &.second-block {
+    @media screen and (max-width: variable.$screen-responsive) {
+      margin-top: 30px;
+    }
+  }
+}
+
+.container-button {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 50px 0;
+
+  &.container-button-left {
+    justify-content: flex-start;
+  }
+  &.container-button-right {
+    justify-content: flex-end;
+  }
+}
+
+.fa-custom-youtube {
+  @extend .fa;
+  @extend .fa-youtube;
+}
+
+h4.subtitle {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 12px;
+}
+
+fa-icon{
+  &.verificato{
+    color:green
+  }
+  &.controllo{
+    color: orange
+  }
+  &.respinto{
+    color:red
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
+.overflow-y {
+  overflow: auto;
+}

@@ -1,0 +1,58 @@
+<form action="" method="post" class="mt-30px column-center-left">
+    <div>
+        <h4>Modulo di richiesta legge 13/1989</h4>
+    </div>
+    <fieldset>
+        <div class="mb-12px">
+            <label class="black-text">
+                Nome
+            </label>
+            <input type="text" [formControl]="firstName" (input)="editField('firstName')" value="">
+        </div>
+
+
+        <div class="">
+            <label class="black-text">
+                Cognome
+            </label>
+            <input type="text" [formControl]="lastName" (input)="editField('lastName')"  value="">
+        </div>
+        <div class="">
+            <label class="black-text">
+                Data di nascita
+            </label>
+            <input type="date" [formControl]="birthDay" (input)="editField('birthDay')"  value="">
+        </div>
+        <div class="column-top-left mt-12px">
+            <label class="black-text">
+                Si applica la legge 1518
+            </label>
+            <input type="checkbox" class="checkbox" [formControl]="law1518" (input)="editField('law1518', $event)">
+        </div>
+        <div class="column-top-left mt-12px">
+            <label class="black-text">
+                Sei maggiorenne?
+            </label>
+            <select class="w-33p" [formControl]="is18Older" (input)="editField('is18Older', $event)" >
+                <option [value]="true">SI</option>
+                <option [value]="false">NO</option>
+            </select>
+        </div>
+        <div class="mt-30px">
+            <div>
+                <input type="submit" role="button" index="0" value="Invia">
+            </div>
+
+        </div>
+    </fieldset>
+    <div class="info-law">
+        <p class="u-text-p">La legge 13/89 può essere divisa in 3 parti:
+            la prima è dedicata alle indicazioni sulla costruzione di nuovi edifici ed alla ristrutturazione di edifici
+            interi (art. 1);
+            la seconda riguarda le innovazioni da apportare su edifici esistenti per eliminare le barriere
+            architettoniche (articoli 2-7);
+            la terza riguarda la concessione di contributi a fondo perduto per la realizzazione delle opere direttamente
+            finalizzate agli impedimenti/ostacoli (articoli 8-12).
+        </p>
+    </div>
+</form>

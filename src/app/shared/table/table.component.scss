@@ -1,0 +1,110 @@
+@import "../../../assets/styles/variables";
+
+.header-table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+  input{
+    color: black;
+    border: none;
+    background-color: $bg-sezioni;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.table-container{
+  overflow-x: auto;
+
+table{
+
+    width: 100%;
+
+    thead{
+
+      tr{
+        height: 40px;
+        background-color: $primary-color;
+        color: #fff;
+        td{
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+
+          .td-head-container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span{
+              .freccia-spenta{
+                color: #fff;
+                font-size: 14px;
+              }
+              .freccia-accesa{
+                color: #fff;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+    tbody{
+
+      tr{
+        height: 60px;
+        border-bottom: 1px solid $border-tr-table;
+
+        &.no-border{
+            border-bottom: none;
+        }
+
+        td{
+
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+          &.go-question{
+            
+            fa-icon{
+              color: $primary-color;
+              cursor: pointer;
+              font-size: 24px;
+            }
+          }
+          &.button{
+            text-align: center;
+             min-width: 25px;
+            fa-icon{
+              color: $color-arrow-table;
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+    }
+
+    @media screen and (max-width: $screen-responsive) {
+      min-width: $screen-responsive;
+     }
+  }
+}
+
+  .paginatore-container{
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    align-items: center;
+
+    fa-icon {
+      font-size: 16px;
+    }
+  }

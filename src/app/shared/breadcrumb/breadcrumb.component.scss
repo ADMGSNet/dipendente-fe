@@ -1,0 +1,35 @@
+@use "../../../assets/styles/variables" as variable;
+
+.breadcrumbs-container{
+    margin-top: 20px;
+
+    .breadcrumbs {
+        display: flex;
+  flex-wrap: wrap;
+        
+        list-style: none;
+        margin: 0 0 0 0;
+        padding: 0 0 0 0;
+        gap: 2px 10px;
+
+        li{
+
+            a{
+                font-weight: 700;
+                text-decoration: none;
+                color: variable.$primary-color;
+
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+      }
+}
+.breadcrumb-item + .breadcrumb-item::before {
+    display: inline-block;
+    padding-right:10px;
+    color: rgb(44, 44, 44);
+    content: ">";
+    font-weight: 700;
+  }

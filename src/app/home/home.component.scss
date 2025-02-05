@@ -1,0 +1,123 @@
+@use "../../assets/styles/variables" as variable;
+
+.options-font-sub-navbar {
+  //OK
+  color: variable.$color-user;
+  padding-left: 1140px;
+  padding-top: 18px;
+}
+
+h3.title-text {
+  //OK
+  font-size: 28px;
+}
+.option-font {
+  //OK
+  font-size: large;
+  font-weight: bolder;
+}
+
+.block-info {
+  // OK
+
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: variable.$primary-color;
+  color: white;
+  font-size: x-large;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+}
+
+.container-title {
+  //ok
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+  @media screen and (max-width: variable.$screen-responsive) {
+    flex-direction: column;
+    margin-bottom: 20px;
+  }
+}
+
+.block-documentazione {
+  //OK
+  display: flex;
+  flex-direction: row;
+  font-size: x-large;
+  font-weight: bolder;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.block-text-documentazione {
+  // OK
+  font-size: medium;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+
+  a {
+    line-height: 20px;
+  }
+}
+
+.block-descrizione-servizio {
+  //ok
+  display: flex;
+  flex-direction: column;
+}
+
+.img-logo1 {
+  //OK
+  background-image: url("/assets/img/logo1.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  padding: 10px;
+  padding-left: 55px;
+}
+
+.img-logo2 {
+  //OK
+  background-image: url("/assets/img/logo2.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  padding: 10px;
+  padding-left: 55px;
+  padding-top: 9px;
+  margin-top: 26px;
+}
+
+.img-logo3 {
+  //OK
+  background-image: url("/assets/img/logo3.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  padding: 10px;
+  padding-left: 55px;
+  padding-top: 9px;
+  margin-top: 26px;
+}
+
+.img-logo4 {
+  //OK
+  background-image: url("/assets/img/logo4.png");
+  background-repeat: no-repeat;
+  background-size: 40px;
+  padding: 10px;
+  padding-left: 55px;
+  padding-top: 9px;
+  margin-top: 26px;
+}
+
+.download-pdf:hover {
+  //OK
+  cursor: pointer;
+  color: black;
+}

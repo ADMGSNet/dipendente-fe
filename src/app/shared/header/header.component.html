@@ -1,0 +1,48 @@
+<header>
+    <div class="header-container">
+        <div class="header-container-top">
+            <div class="header-container-top-content">
+                <a href="https://www.comune.roma.it/web/it/home.page">
+                    <img src="assets/img/logo_roma_header_white.png" alt="Roma Capitale">
+                </a>
+            </div>
+
+        </div>
+        <div class="header-container-bottom">
+            <div class="header-container-bottom-content">
+                <div class="header-user">
+                    <div class="alarm-container" (click)="toggleActionList()">
+                        <fa-icon class="color-red cursor-pointer alarm" [icon]="faBell">
+                        </fa-icon>
+                        <div class="circleBadge">{{ sessionService.notification.length }}</div>
+                    </div>
+                    <div class="color-red ">{{ getUserFullname()}}</div>
+                    <div class="icon-roma icon-profile-navbar"></div>
+                </div>
+            </div>
+            <div *ngIf="isOpenActionList && sessionService.notification && sessionService.notification.length" class="action-list-container">
+                <div *ngFor="let question of sessionService.notification" class="action-list">
+                    Ci sono delle azioni da svolgere in <a [href]="goToDettaglioDomanda(question._id)" class="pl-10px color-white">{{ question._id }}</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<!--div class="background-red">
+    <div class="img-logo-com-roma">
+    </div>
+</div>
+
+<div class="p-1px">
+
+</div>
+
+<div class="color-sub-navbar">
+    <div class="row-center-center color-yellow ">MARIO ROSSI</div>
+    <div class="icon-profile-navbar"></div>
+
+
+</div-->

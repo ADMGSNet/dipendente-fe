@@ -1,0 +1,10 @@
+<button class="rc-button"
+    [class.rc-button-secondary]="option=='secondary'"
+    [class.rc-button-link]="option=='link'"
+    [class.active]="isActive == true"
+    [disabled]="disabled"
+>
+    <ng-content></ng-content>
+
+</button>
+

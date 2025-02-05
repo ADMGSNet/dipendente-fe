@@ -1,0 +1,579 @@
+@use "../../../assets/styles/variables" as variable;
+
+.img-logo-com-roma {
+    background-image: url("/assets/img/logo-roma.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    width: auto;
+    height: 120px;
+    margin-left: 35px;
+    padding-bottom: 10px;
+  
+  }
+  
+  .color-sub-navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    background-color: variable.$primary-color;
+    // width: auto;
+    height: 55px;
+    padding-right: 100px;
+  }
+  
+  .icon-profile-navbar {
+    background-image: url("/assets/img/icon-profile.png");
+    background-repeat: no-repeat;
+    width: 4%;
+    background-size: 70px;
+  
+  }
+  
+  .options-font-sub-navbar {
+    color: variable.$color-user;
+    padding-left: 1140px;
+    padding-top: 18px;
+  }
+  
+  .footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+  }
+  
+  .footer-column {
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .title-text {
+    font-size: x-large;
+    font-weight: bolder;
+  }
+  
+  .option-font {
+    font-size: large;
+    font-weight: bolder;
+  }
+  
+  .block-info {
+  
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: variable.$primary-color;
+    color: white;
+    font-size: x-large;
+    font-weight: bolder;
+    display: flex;
+    justify-content: center;
+  
+  }
+  
+  .path-link {
+    display: flex;
+    flex-direction: row;
+    margin-top: 30px;
+    font-weight: bolder;
+  
+  }
+  
+  .container-sommario {
+    display: flex;
+    flex-direction: row;
+    font-size: medium;
+    font-weight: bolder;
+    width: 90%;
+    max-width: 630px;
+    background-color: white;
+    border: 2px solid white;
+    box-shadow: 0 0 5px white;
+    -moz-box-shadow: 0 0 5px white;
+    -webkit-box-shadow: 0 0 5px #888;
+  }
+  
+  .sommario-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    padding:10px;
+  }
+  
+  .container-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 97%;
+    //max-width: 630px;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .option-button {
+    cursor: pointer;
+    font-size: medium;
+    text-align: center;
+    width: 141px;
+    padding: 12px;
+    color: variable.$primary-color;
+    background-color: variable.$bg-sezioni;
+  }
+  
+  .block-agevolazione {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 80px;
+    font-size: x-large;
+    font-weight: bolder;
+    background-color: variable.$bg-sezioni;
+  }
+  
+  .block-text-agevolazione {
+    font-size: medium;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .block-documentazione {
+    display: flex;
+    flex-direction: row;
+    font-size: x-large;
+    font-weight: bolder;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  
+  }
+  
+  .block-text-documentazione {
+    font-size: medium;
+    font-weight: normal;
+    display: flex;
+    flex-direction: column;
+  
+  }
+  
+  .block-descrizione-servizio {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  
+  .container-loghi {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding-left: 10px;
+    font-size: x-large;
+  
+  }
+  
+  .column-loghi {
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  
+  }
+  
+  .img-logo1 {
+    background-image: url("/assets/img/logo1.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    padding: 10px;
+    padding-left: 55px;
+    padding-top: 9px;
+    margin-top: 26px;
+  
+  }
+  
+  .img-logo2 {
+    background-image: url("/assets/img/logo2.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    padding: 10px;
+    padding-left: 55px;
+    padding-top: 9px;
+    margin-top: 26px;
+  }
+  
+  .img-logo3 {
+    background-image: url("/assets/img/logo3.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    padding: 10px;
+    padding-left: 55px;
+    padding-top: 9px;
+    margin-top: 26px;
+  }
+  
+  .img-logo4 {
+    background-image: url("/assets/img/logo4.png");
+    background-repeat: no-repeat;
+    background-size: 40px;
+    padding: 10px;
+    padding-left: 55px;
+    padding-top: 9px;
+    margin-top: 26px;
+  }
+  
+  .img-logo5 {
+    background-image: url("/assets/img/logo_share.png");
+    background-repeat: no-repeat;
+    background-size: 40px 45px;
+   
+  
+  }
+  
+  .img-logo6 {
+    background-image: url("/assets/img/logo6.png");
+    background-repeat: no-repeat;
+    width: auto;
+    height: 120px;
+    margin-left: 65px;
+  
+  
+  }
+  
+  .img-fb {
+    background-image: url("/assets/img/logo_fb.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-insta {
+    background-image: url("/assets/img/logo_ig.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-link {
+    background-image: url("/assets/img/logo_ln.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-tik {
+    background-image: url("/assets/img/logo_tt.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-twe {
+    background-image: url("/assets/img/logo_x.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-wa {
+    background-image: url("/assets/img/logo_wu.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-you {
+    background-image: url("/assets/img/logo_yt.png");
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    background-size: 50px;
+  }
+  
+  .img-cookie {
+    background-image: url("/assets/img/cookie.png");
+    background-repeat: no-repeat;
+    width: 4%;
+    background-size: 50px;
+  }
+  
+  
+  
+  .img-freccia-giu{
+    background-image: url("/assets/img/freccia_giu.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    padding: 0px;
+  }
+  
+  .img-freccia-rossa {
+    background-image: url("/assets/img/freccia_rossa.png");
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    background-size: 20px;
+    padding: 0px;
+  }
+  
+  .button-indietro {
+    cursor: pointer;
+    height: 18px;
+  
+    text-align: center;
+    width: 146px;
+    padding: 12px;
+    background-color: variable.$primary-color;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  
+  }
+  
+  .button-invia-domanda {
+    cursor: pointer;
+    height: 18px;
+  
+    text-align: center;
+    width: 185px;
+    padding: 12px;
+    background-color: variable.$primary-color;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-right: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  
+  
+  }
+  
+  .button-vai-alla-mia-situazione {
+    cursor: pointer;
+    font-weight: bold;
+    height: 15px;
+    text-align: center;
+    width: 170px;
+    padding: 12px;
+    padding-left: 16px;
+    padding-right: 16px;
+    background-color: white;
+    color: variable.$primary-color;
+    border-width: 3px;
+    border-color: variable.$primary-color;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-style: solid;
+  }
+  
+  .cursor-selected-pointer {
+    cursor: pointer;
+  }
+  
+  .download-pdf:hover {
+    cursor: pointer;
+    color: black;
+  }
+  
+  .icons-wrap {
+    flex-wrap: wrap;
+    width: 232px;
+  }
+  
+  .border-top {
+    border-top: solid 0.5px white;
+  }
+
+  
+.img-freccia-right {
+  background-image: url("/assets/img/freccia-right.png");
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  background-size: 50px;
+}
+
+.img-freccia-giu-grey{
+  background-image: url("/assets/img/freccia-giu-grey.png");
+  background-repeat: no-repeat;
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+}
+
+.boxStateApprovata{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: green;
+  color: white;
+}
+
+.boxStateVerifica{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: purple;
+  color: white;
+}
+
+.boxStateInvio {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: brown;
+  color: white;
+}
+
+
+.boxStateRespinta{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: red;
+  color: white;
+}
+
+.boxStateDocumenti{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: orange;
+  color: white;
+}
+
+.boxStateBozza{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 22px;
+  width: 77px;
+  border-radius: 4px;
+  background-color: grey;
+  color: white;
+}
+.table-container{
+  //overflow-x: auto;
+
+  table{
+
+    thead{
+
+     
+
+      tr{
+        height: 40px;
+        background-color: variable.$primary-color;
+        color: #fff;
+        td{
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+        }
+      }
+      
+    }
+    tbody{
+
+      tr{
+        height: 60px;
+        border-bottom: 1px solid #ADB5BD;
+
+        td{
+
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+          &.go-question{
+            
+            fa-icon{
+              color: variable.$primary-color;
+              cursor: pointer;
+              font-size: 24px;
+            }
+          }
+          &.button{
+            text-align: center;
+             min-width: 25px;
+            fa-icon{
+              color: rgb(49,50,57);
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+    }
+    @media screen and (max-width: variable.$screen-responsive) {
+      min-width: variable.$screen-responsive;
+     }
+  }
+}
+
+.container-modal {
+  display: flex;
+  z-index: 5;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  background-color: rgb(160, 160, 160);
+
+}
+
+.popup {
+  z-index: 100;
+  background-color: white;
+
+  max-width: 500px;
+  width: 50vw;
+  height: 400px;
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}

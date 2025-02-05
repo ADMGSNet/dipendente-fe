@@ -1,0 +1,7 @@
+<nav class="breadcrumbs-container">
+    <ol class="breadcrumbs">
+        <li *ngFor="let breadcrumb of breadcrumbs" class="breadcrumb-item">
+            <a href="{{ breadcrumb.url }}">{{ breadcrumb.label }}</a>
+        </li>
+    </ol>
+</nav>

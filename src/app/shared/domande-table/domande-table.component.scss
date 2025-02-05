@@ -1,0 +1,129 @@
+@use "../../../assets/styles/variables" as variable;
+
+.header-table{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+
+  input{
+    color: black;
+    border: none;
+    background-color: variable.$bg-sezioni;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: 700;
+  }
+}
+
+.table-container{
+  overflow-x: auto;
+
+table{
+
+    width: 100%;
+    tr{
+      td{
+        //padding-left: 10px;
+      }
+    }
+
+    thead{
+
+      tr{
+        height: 40px;
+        background-color: variable.$primary-color;
+        color: #fff;
+        td{
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+
+          .td-head-container{
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            span{
+              .freccia-spenta{
+                color: #fff;
+                font-size: 14px;
+              }
+              .freccia-accesa{
+                color: #fff;
+                font-size: 14px;
+              }
+            }
+          }
+        }
+      }
+      
+    }
+    tbody{
+
+      tr{
+        height: 60px;
+        border-bottom: 1px solid variable.$border-tr-table;
+
+        &.no-border{
+            border-bottom: none;
+        }
+
+        td{
+
+          &.checkbox{
+            text-align: center;
+             min-width: 25px;
+          }
+          &.go-question{
+            
+            fa-icon{
+              color: variable.$primary-color;
+              cursor: pointer;
+              font-size: 24px;
+            }
+          }
+          &.button{
+            text-align: center;
+             min-width: 25px;
+            fa-icon{
+              color: variable.$color-arrow-table;
+              cursor: pointer;
+              font-size: 14px;
+            }
+          }
+
+          &.documenti{
+            fa-icon{
+              &.verificato{
+                color:green
+              }
+              &.controllo{
+                color: orange
+              }
+              &.respinto{
+                color:red
+              }
+            }
+          }
+        }
+      }
+
+    }
+
+    @media screen and (max-width: variable.$screen-responsive) {
+      min-width: variable.$screen-responsive;
+     }
+  }
+}
+
+  .paginatore-container{
+    display: flex;
+    gap: 10px;
+    padding: 15px 0;
+    align-items: center;
+
+    fa-icon {
+      font-size: 16px;
+    }
+  }

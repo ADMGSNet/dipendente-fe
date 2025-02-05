@@ -1,0 +1,48 @@
+<div *ngIf="showSocialButton" class="social-button-wraper" (click)="toggleSocialButton()" title="Scegli dove condividere">
+    <div class="social-icon-container">
+      <div class="social-icon">
+        <div>
+            <fa-icon [icon]="faShareNodes"></fa-icon>
+        </div>
+        
+      </div>
+    </div>
+    <div class="social-text">Condividi</div>
+  </div>
+  
+  <div *ngIf="!showSocialButton" class="all-icon-social">
+   
+    <div class="single-social single-social-facebook">
+        <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.comune.roma.it/web/it/corpo-di-polizia-locale-centrale-operativa.page" title="Condividi su Facebook" target="_blank">
+            <fa-icon [icon]="faFacebookF"></fa-icon>
+        </a> 
+    </div>
+
+    
+    <div class="single-social single-social-x">
+        <a href="https://twitter.com/share?text=Centrale%20operativa&url=https://www.comune.roma.it/web/it/corpo-di-polizia-locale-centrale-operativa.page" title="Condividi su X" target="_blank">
+            <fa-icon [icon]="faXTwitter"></fa-icon>
+        </a> 
+    </div>
+    <div class="single-social single-social-linkedin">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&title=Centrale%20operativa&url=https://www.comune.roma.it/web/it/corpo-di-polizia-locale-centrale-operativa.page" title="Condividi su Linkedin" target="_blank">
+            <fa-icon [icon]="faLinkedinIn"></fa-icon>
+        </a>
+    </div>
+    <div class="single-social single-social-ua">
+        <a href="https://api.whatsapp.com/send?text=Centrale%20operativa%20https://www.comune.roma.it/web/it/corpo-di-polizia-locale-centrale-operativa.page" title="Condividi su Whatsapp" target="_blank">
+            <fa-icon [icon]="faWhatsapp"></fa-icon>
+        </a>
+    </div>
+    <div class="single-social single-social-telegram">
+        <a href="https://t.me/share/url?text=Centrale%20operativa&url=https://www.comune.roma.it/web/it/corpo-di-polizia-locale-centrale-operativa.page" title="Condividi su Telegram" target="_blank">
+            <fa-icon [icon]="faTelegramPlane"></fa-icon>
+        </a>
+    </div>
+    <div class="single-social single-social-chiudi" (click)="toggleSocialButton()"  title="Torna indietro">
+        <div>
+            <fa-icon [icon]="faTimes"></fa-icon>
+        </div>
+        
+    </div>
+  </div>

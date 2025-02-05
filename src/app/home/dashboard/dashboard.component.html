@@ -1,0 +1,56 @@
+
+<section>
+    <div>
+        <!-- LINK VICINO NAVBAR -->
+        <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+        <div class="block-descrizione-servizio">     
+            <h3 class="title-text">Legge 13/89</h3>
+            <p> La legge n. 13 del 1989 detta le norme per l eliminazione delle barriere architettoniche negli edifici pubblici e privati.</p>
+            <p>Prevede inoltre contributi per l adattamento degli edifici alle esigenze dei portatori di handicap.</p>
+            <p>Proprietari di edifici pubblici e privati sono tenuti ad adeguare gli edifici alle norme tecniche entro 6 mesi
+            dall'entrata in vigore della legge.</p>
+            <p>I portatori di handicap possono presentare domanda di contributo per l adattamento degli edifici alle proprie esigenze.</p>
+            <p>Per informazioni più complete, consultare il testo completo della legge e la circolare del Ministero dei Lavori
+            Pubblici.</p>
+            <p>Aggiornato al 21 marzo 2024</p>
+        </div>
+    </div>
+    <div class="row-center-space-between">
+        <h4 class="subtitle">Lista domande</h4>
+        <app-button (click)="openModalPrintDomandeRegione()">
+            <div class="row-center-space-between">
+                <fa-icon class="color-white mr-12px" [icon]="faPrint"></fa-icon>
+                <div>
+                    STAMPA DOMANDA DA INVIARE ALLA REGIONE
+                </div>
+            </div>
+            </app-button>
+    </div>
+    <div class="table-container">
+        <app-domande-table [paginated]="true" [itemPerPage]="10" [filtered]="false"></app-domande-table>
+    </div>
+</section>
+
+<div class="container-button">
+    <!-- <app-button (click)="backToDescrizioneServizio()">indietro</app-button> -->
+    <!-- <app-button (click)="inviaDomanda()">INVIA UNA NUOVA DOMANDA</app-button> -->
+</div>
+
+<div *ngIf="isOpenedModalPrintDomandeRegione" class="container-modal">
+    <div class="popup column-center-space-between">
+        <h3>Stampa domande da inviare alla regione</h3>
+        <div class="overflow-y">
+            <div *ngFor="let printDomande of sessionService.printDomandeRegione" >
+                <div class="mt-12px">
+                    il richiedente <strong>{{ printDomande.richiedente.lastName }} {{ printDomande.richiedente.firstName }}</strong> della domanda nr. <strong>{{ printDomande["gedLog"][0]["data"]["listaNumeroProtocollo"][0].progressivoProtocollo }}</strong> del <strong>{{ printDomande.date | date:'yyyy-MM-dd' }}</strong>
+                </div>
+            </div>
+        </div>
+
+        <div class="row-center-right mt-12px">
+            <app-button class="mr-12px" (click)="closeModalPrintDomandeRegione()">Chiudi</app-button>
+            <app-button (click)="stampaListaDomande()">Stampa</app-button>
+        </div>
+
+    </div>
+</div>

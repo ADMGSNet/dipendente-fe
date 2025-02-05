@@ -1,0 +1,33 @@
+@use "../styles/variables" as variable;
+
+.color-grey-30 {
+    color: #ddd!important;
+}
+
+.black-text {
+    color: rgb(28, 32, 36)
+}
+
+.color-red{
+   color: variable.$primary-color;
+}
+
+.color-yellow{
+    color: variable.$color-user;
+ }
+ 
+ .color-white{
+    color:white;
+ }
+
+ .color-black{
+   color: black;
+ }
+
+.background-red{
+    background-color: variable.$primary-color;
+ }
+
+ .background-grey{
+    background-color: variable.$dark-grey;
+ }

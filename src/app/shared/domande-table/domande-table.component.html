@@ -1,0 +1,70 @@
+<div class="header-table">
+  <input type="text" [(ngModel)]="searchTerm" (keyup)="search(searchTerm)" placeholder="Cerca...">
+  <app-filter-table *ngIf="filtered" [tags]="tags"></app-filter-table>
+</div>
+<div *ngIf="!this.domande || this.domande.length == 0">Non ci sono domande</div>
+
+<script id="question-list-ssr-data"></script>
+<div *ngIf="this.domande && this.domande.length"  class="table-container">
+
+<table>
+    <thead>
+      <tr>
+        <td *ngFor="let column of columns" class="{{ column.class }}">
+          <input *ngIf="column.isCheckbox" type="checkbox">
+          <div class="td-head-container"
+          (click)="column.sortable ? sortByColumn(column.key) : null"
+            [style.cursor]="column.sortable ? 'pointer' : 'default'">
+            {{ column.header }}
+            <span *ngIf="column.sortable">
+                <fa-icon class="freccia-spenta" [icon]="faSort" *ngIf="sortedColumn !== column.key"></fa-icon>
+                <fa-icon class="freccia-accesa" [icon]="faSortUp" *ngIf="sortedColumn === column.key && sortDirection === 'asc'"></fa-icon>
+                <fa-icon class="freccia-accesa" [icon]="faSortDown" *ngIf="sortedColumn === column.key && sortDirection === 'desc'"></fa-icon>
+              </span>
+          </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of this.filteredDomande; index as i">
+
+        <tr [ngClass]="{'no-border': row.isVisible}">
+          <td class="checkbox"><input type="checkbox"></td>
+          <td class="progressivo">{{ row.gedLog && row.gedLog.length? row.gedLog[0].data.listaNumeroProtocollo[0].progressivoProtocollo : "-" }}</td>
+          <td class="full-name">{{ row.richiedente.firstName }} {{ row.richiedente.lastName }}</td>
+          <td class="date">{{ row.date | date:'yyyy-MM-dd' }}</td>
+          <td class="import">{{ row.generalitaLavori.contributo }}€</td>
+          <td *ngIf="row.statoAllegati" class="documenti"  [ngSwitch]="row.statoAllegati.value">
+              <fa-icon class="verificato" *ngSwitchCase="stateDocumentEnum.VERIFICATO" [icon]="faCircleCheck"></fa-icon>
+              <fa-icon  class="controllo" *ngSwitchCase="stateDocumentEnum.CONTROLLO" [icon]="faTriangleExclamation"></fa-icon>
+              <fa-icon class="respinto"  *ngSwitchCase="stateDocumentEnum.RESPINTO" [icon]="faCircleMinus"></fa-icon>
+              <p *ngSwitchDefault>Nessun dato</p>
+          </td>
+          <td *ngIf="!row.statoAllegati">-</td>
+          <td class="livello-priorita">{{ row.priorita? row.priorita : "-" }}</td>
+          <td class="state">
+            <app-chips [state]="row.state"></app-chips>
+          </td>
+          <td class="go-question">
+            <fa-icon [icon]="faArrowRight" (click)="vaiAllaDomanda(row)"></fa-icon>
+          </td>
+          <td class="button">
+            <fa-icon [icon]="row.isVisible ? faAngleUp : faAngleDown"  (click)="toggle(i)"></fa-icon>
+          </td>
+        </tr>
+        <tr class="descrizione" *ngIf="row.isVisible">
+          <td></td>
+          <td colspan="5">{{ row.descrizione }}</td>
+          <td></td>
+        </tr>
+      </ng-container>
+    </tbody>
+    
+  </table>
+</div>
+  <div *ngIf="paginated && this.domande && this.domande.length " class="paginatore-container">
+    <app-button [disabled]="currentPage < 1" option="link" (click)="prevPage()"><fa-icon [icon]="faAngleLeft"></fa-icon></app-button>
+    <span>{{ currentPage +1 }} di {{ totalPages }}</span>
+    <app-button [disabled]="currentPage == totalPages-1" option="link" (click)="nextPage()"><fa-icon [icon]="faAngleRight"></fa-icon></app-button>
+  </div>
+  

@@ -1,0 +1,131 @@
+@use "../../../assets/styles/variables" as variable;
+
+.color-sub-navbar {
+  display: flex;
+  flex-direction: row;
+  justify-content: right;
+  background-color: variable.$primary-color;
+  // width: auto;
+  height: 55px;
+  padding-right: 100px;
+}
+/*
+  .icon-profile-navbar {
+    background-image: url("/assets/img/icon-profile.png");
+    background-repeat: no-repeat;
+    width: 4%;
+    background-size: 70px;
+  
+  }
+*/
+
+.icon-roma {
+  background-image: url("/assets/img/sprite-rc.png");
+}
+
+.header-container {
+  background-color: variable.$color-white;
+
+  .header-container-top {
+    padding: 10px 0;
+    border-bottom: 1px rgb(26, 26, 26) solid;
+
+    .header-container-top-content {
+      max-width: 1651px;
+      width: 100%;
+      margin: 0 auto;
+
+      @media screen and (max-width: variable.$max-width-pointbreak) {
+        padding-left: 20px;
+        box-sizing: border-box;
+      }
+
+      a {
+        display: inline-block;
+
+        img {
+          @media screen and (max-width: variable.$screen-responsive) {
+            max-width: 290px;
+          }
+        }
+      }
+    }
+  }
+  .header-container-bottom {
+    max-width: 1651px;
+    width: 100%;
+    margin: 0 auto;
+    border-bottom: 1px rgb(26, 26, 26) solid;
+
+    .header-container-bottom-content {
+      height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+
+      @media screen and (max-width: variable.$screen-responsive) {
+        height: 42px;
+      }
+
+      @media screen and (max-width: variable.$max-width-pointbreak) {
+        padding-right: 20px;
+        box-sizing: border-box;
+      }
+
+      .header-user {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        .icon-profile-navbar {
+          width: 25px;
+          height: 25px;
+          background-position-x: 0;
+          background-position-y: 0;
+        }
+      }
+    }
+  }
+}
+
+.alarm-container {
+  display: flex;
+  align-items: center;
+}
+
+.alarm {
+  font-size: x-large;
+}
+
+.circleBadge {
+  position: relative;
+  border-radius:50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:22px;
+  height: 22px;
+  padding: 10px;
+  background-color: variable.$primary-color;
+  color: white;
+  right:36px;
+  bottom:10px;
+  border: orange solid 2px ;
+}
+
+.action-list-container {
+  position: absolute;
+  right:100px;
+  z-index: 3;
+  padding: 10px;
+  background: variable.$primary-color;
+  color: white;
+  border-radius: 10px;
+}
+
+.action-list {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  margin-bottom: 5px;
+}

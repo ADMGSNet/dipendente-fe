@@ -1,0 +1,81 @@
+@use "../../../assets/styles/variables" as variable;
+
+.social-button-wraper{
+
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    .social-icon-container{
+        height: 40px ;
+        width: 40px ;
+        background-color: variable.$primary-color;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        .social-icon{
+            font-size: 28px;
+            color: white;
+            //display: flex;
+            //align-items: center;
+            //justify-content: center;
+            // background-image: url(/assets/img/sprite-rc.png);
+            // background-position-x: -25px;
+            // background-position-y: 1px;
+            div{
+                height: 28px;
+            }
+        }
+    }
+
+    .social-text{
+        font-size: 17px;
+        color: variable.$primary-color;
+        background-color: variable.$bg-sezioni;
+        width: 105px;
+        line-height: 40px;
+        padding-left: 20px;
+    }
+
+}
+
+.all-icon-social{
+    display: flex;
+    align-items: center;
+    align-content: center;
+    background-color: #fff;
+    gap: 2px;
+
+    .single-social{
+        height: 40px;
+        width: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+       
+        background-color: variable.$primary-color;
+        color: #fff;
+
+        a{
+            
+            color: #fff;
+            text-decoration: none;
+            line-height: 0;
+        }
+
+        &.single-social-chiudi{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 28px;
+
+            div{
+                height: 28px;
+            }
+        }
+    }
+
+}

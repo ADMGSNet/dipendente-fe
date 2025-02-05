@@ -1,0 +1,188 @@
+<section class="column-left-center">
+    <!-- LINK VICINO NAVBAR -->
+
+    <app-breadcrumb [breadcrumbs]="breadcrumbs"></app-breadcrumb>
+
+    <!-- RIGA DEL CONDIVIDI -->
+    <div class="container-title">
+
+        <h1 class="h1-title">
+            Eliminazione delle barriere architettoniche
+        </h1>
+
+        <div class="column-top-center">
+
+            <app-social-button></app-social-button>
+        </div>
+
+    </div>
+
+    <!-- SOMMARIO -->
+    <div class="wrapper-sommario">
+
+        <app-expandable-section title="Sommario" [typeSummary]="true">
+            <app-button (click)="onTabSelected(summaryEnum.DESCRIPTION)" option="link"
+                [isActive]="tabSummarySelected==summaryEnum.DESCRIPTION">1. Descrizione servizio</app-button>
+            <!-- <app-button (click)="onTabSelected(summaryEnum.LOREM_IPSUM2)" option="link"
+                [isActive]="tabSummarySelected==summaryEnum.LOREM_IPSUM2">3. Lorem ipsum 2</app-button>
+            <app-button (click)="onTabSelected(summaryEnum.LOREM_IPSUM1)" option="link"
+                [isActive]="tabSummarySelected==summaryEnum.LOREM_IPSUM1">2. Lorem ipsum 1</app-button>
+            <app-button (click)="onTabSelected(summaryEnum.LOREM_IPSUM3)" option="link"
+                [isActive]="tabSummarySelected==summaryEnum.LOREM_IPSUM3">4. Lorem ipsum 3</app-button> -->
+        </app-expandable-section>
+
+
+        <div *ngIf="tabSummarySelected==summaryEnum.DESCRIPTION">
+            <div class="block-descrizione-servizio">
+                <h3 class="title-text"> Descrizione del servizio</h3>
+                <p> La legge n. 13 del 1989 detta le norme per l eliminazione delle barriere architettoniche negli
+                    edifici pubblici e privati.</p>
+                <p>Prevede inoltre contributi per l adattamento degli edifici alle esigenze dei portatori di handicap.
+                </p>
+                <p>Proprietari di edifici pubblici e privati sono tenuti ad adeguare gli edifici alle norme tecniche
+                    entro 6 mesi
+                    dall'entrata in vigore della legge.</p>
+                <p>I portatori di handicap possono presentare domanda di contributo per l adattamento degli edifici alle
+                    proprie esigenze.</p>
+                <p>Per informazioni più complete, consultare il testo completo della legge e la circolare del Ministero
+                    dei Lavori
+                    Pubblici.</p>
+                <p>Aggiornato al 21 marzo 2024</p>
+            </div>
+        </div>
+
+        <div *ngIf="tabSummarySelected==summaryEnum.LOREM_IPSUM1">
+            <div class="block-descrizione-servizio">
+                <h3 class="title-text"> LOREM IPSUM 1</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                    ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est
+                    laborum.</p>
+            </div>
+        </div>
+
+        <div *ngIf="tabSummarySelected==summaryEnum.LOREM_IPSUM2">
+            <div class="block-descrizione-servizio">
+                <h3 class="title-text"> LOREM IPSUM 2</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                    ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est
+                    laborum.</p>
+            </div>
+        </div>
+
+        <div *ngIf="tabSummarySelected==summaryEnum.LOREM_IPSUM3">
+            <div class="block-descrizione-servizio">
+                <h3 class="title-text"> LOREM IPSUM 3</h3>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore
+                    magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex
+                    ea commodo
+                    consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                    nulla
+                    pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit
+                    anim id est
+                    laborum.</p>
+            </div>
+        </div>
+        <div class="container-button container-button-left">
+            <app-button (click)="goToDescrizione()">richiedi</app-button>
+            <!-- <app-button option="secondary">VAI ALLA MIA SITUAZIONE</app-button> -->
+        </div>
+    </div>
+
+</section>
+
+
+
+
+<!-- DAL SOMMARIO IN BASE A CIò CHE CLICCO MI ESCE LA SUA DESCRIZIONE -->
+
+
+<section class="section-agevolazione">
+    <div class="wrapper-agevolazioni">
+        <h3 class="title-text">Come richiedere l’agevolazione</h3>
+        <div class="block-agevolazione">
+
+
+            <div class="block-text-agevolazione">
+
+                <div class="img-logo1">
+                    Accedi alla procedura e compila il modulo con i dati richiesti
+                </div>
+
+                <div class="img-logo2">
+                    Scannerizza i documenti e caricali sul portale
+                </div>
+
+                <div class="img-logo3">
+                    Accedi alla tua dashboard e consulta lo stato della tua domanda
+                </div>
+
+            </div>
+
+
+            <div class="block-text-agevolazione second-block">
+
+                <div class="option-font">
+                    <p>Hai altre domande?</p>
+                </div>
+
+                <p>Ufficio agevolazioni</p>
+
+                <p class="color-red">ufficio.agevolazioni&#64;comunediroma.it</p>
+
+                <p>06 0192304 (dal lunedì al venerdi dalle ore 9.00 alle 13.00)</p>
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+<!-- <div class="row-center-center w100">
+
+    <div class="column-left-center w-90">
+        <div class="block-documentazione ">
+            <div class="block-text-documentazione">
+
+                <h3 class="title-text">Documentazione</h3>
+                <div class="pt-9px mt-26px">Scarica, stampa e compila i documenti</div>
+
+                <a href="https://www.comune.roma.it/web-resources/cms/documents/Modello_Dichiarazioni_IMUENC_Decreto24.04.2024.pdf"
+                    title="Scarica modulo di richiesta rimborso legge 13/89" target="_blank"
+                    class="pl-55px pt-9px mt-26px img-logo4 color-red download-pdf">Modulo di richiesta rimborso legge
+                    13/89</a>
+
+                 <a href="https://www.comune.roma.it/web-resources/cms/documents/Modello_Dichiarazioni_IMUENC_Decreto24.04.2024.pdf"
+                    title="Lorem ipsum dolor sit amet9" target="_blank"
+                    class="pl-55px pt-9px mt-26px img-logo4 color-red download-pdf">Lorem ipsum dolor sit amet</a>
+
+                <a href="https://www.comune.roma.it/web-resources/cms/documents/Modello_Dichiarazioni_IMUENC_Decreto24.04.2024.pdf"
+                    title="Lorem ipsum dolor sit amet9" target="_blank"
+                    class="pl-55px pt-9px mt-26px img-logo4 color-red download-pdf">Lorem ipsum dolor sit amet</a> 
+
+            </div>
+
+        </div>
+    </div>
+</div> -->
+
+<!-- <div class="block-info">
+    Ti è stata utile questa pagina?
+
+</div> -->

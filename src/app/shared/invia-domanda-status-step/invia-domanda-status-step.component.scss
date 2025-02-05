@@ -1,0 +1,116 @@
+@use "../../../assets/styles/variables" as variable;
+
+
+.status-step-container{
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: flex-start;
+    font-size: 16px;
+    margin: 10px 0;
+
+    .status-step-item{
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        text-align: center;
+        height: 70px;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        &::before{
+            content: "";
+            position: absolute;
+            top: 59px;
+            left: calc(-50% - -10px);
+            width: calc(100% - 30px);
+            height: 2px;
+            background-image: linear-gradient(to right, #7a7a7b 50%, transparent 50%);
+            background-size: 20px 2px; 
+
+            @media screen and (max-width: 569px) {
+                display: none;
+              }
+        }
+        
+
+        .bullet-status-step{
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0px 0px 0px 6px white, 0px 0px 0px 1px #7a7a7b inset;
+            min-width: 20px;
+            margin-top: 4px;
+            position: relative;
+            background-color: white;
+            box-sizing: border-box;
+
+            
+        }
+
+        .title-status-step{
+            color: #4f566b;
+            font-weight: bold;
+            font-size: 15px;
+            @media screen and (max-width: variable.$screen-responsive){
+                font-size: 13px;
+            }
+        }
+
+        &:first-child{
+            &::before{
+                display: none
+            }
+        }
+
+
+        &.active{
+
+            &::before{
+                background-image: linear-gradient(to right, variable.$primary-color 50%, transparent 50%);
+               
+            }
+            
+            .title-status-step{
+                color: variable.$primary-color;
+            }
+            .bullet-status-step{
+                background-color: transparent;
+                //border-color: variable.$primary-color;
+                box-shadow: 0px 0px 0px 5px white,  0px 0px 0px 6px variable.$primary-color inset; 
+            }
+        }
+
+        &.completed{
+
+            &::before{
+                background-image: linear-gradient(to right, variable.$primary-color 50%, transparent 50%);
+            }
+            
+            .title-status-step{
+                color: #000;
+            }
+            .bullet-status-step{
+                background-color: transparent;
+                //border-color: variable.$primary-color;
+                box-shadow: 0px 0px 0px 5px white,  0px 0px 0px 10px variable.$primary-color inset;
+                position: relative;
+
+                &::before{
+                    content: "\2714";
+                    color: white;
+                    font-size: 13px;
+                    font-weight: bold;
+                    position: absolute;
+                    right: 5px;
+                    top: 1px;
+                }
+            }
+        }
+
+
+    }
+  
+}

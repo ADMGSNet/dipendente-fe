@@ -1,0 +1,54 @@
+input {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.5em;
+    width: 100%;
+}
+
+select {
+    border: 1px solid #ccc;
+    border-radius: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    font-size: inherit;
+    padding: 0.5em;
+    width: 15%;
+}
+
+
+input:focus {
+
+  box-sizing: border-box;
+  outline: none;
+    border: 1px solid rgb(126, 182, 226)
+}
+
+fieldset {
+    width: 75%;
+    max-width:400px;
+}
+
+.checkbox {
+    width: 30px;
+    height: 30px;
+    font-size: x-large;
+    border: 1px solid #ccc;
+    -moz-appearance:none;
+    -webkit-appearance:none;
+    -o-appearance:none;
+}
+
+.checkbox:checked {
+    -moz-appearance:auto;
+    -webkit-appearance:auto;
+    -o-appearance:auto;
+}
+
+.checkbox:hover {
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid rgb(126, 182, 226)
+  }

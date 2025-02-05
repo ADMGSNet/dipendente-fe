@@ -1,0 +1,57 @@
+<div class="header-table">
+  <input type="text" [(ngModel)]="searchTerm" (keyup)="search(searchTerm)" placeholder="Cerca...">
+  <app-filter-table *ngIf="filtered" [tags]="tags"></app-filter-table>
+</div>
+<div class="table-container">
+<table>
+    <thead>
+      <tr>
+        <td *ngFor="let column of columns" class="{{ column.class }}">
+          <input *ngIf="column.isCheckbox" type="checkbox">
+          <div class="td-head-container"
+          (click)="column.sortable ? sortByColumn(column.key) : null"
+            [style.cursor]="column.sortable ? 'pointer' : 'default'">
+            {{ column.header }}
+            <span *ngIf="column.sortable">
+                <fa-icon class="freccia-spenta" [icon]="faSort" *ngIf="sortedColumn !== column.key"></fa-icon>
+                <fa-icon class="freccia-accesa" [icon]="faSortUp" *ngIf="sortedColumn === column.key && sortDirection === 'asc'"></fa-icon>
+                <fa-icon class="freccia-accesa" [icon]="faSortDown" *ngIf="sortedColumn === column.key && sortDirection === 'desc'"></fa-icon>
+              </span>
+          </div>
+        </td>
+      </tr>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let row of getVisibleRows(); index as i">
+        <tr [ngClass]="{'no-border': this.sessionService.rows[i].isVisible}">
+          <td class="checkbox"><input type="checkbox"></td>
+          <td class="full-name">{{ row.fullName }}</td>
+          <td class="date">{{ row.date | date:'dd/MM/yyyy' }}</td>
+          <td class="import">{{ row.import }}€</td>
+          <td class="state">
+            <app-chips [state]="row.state"></app-chips>
+          </td>
+          <td class="note">{{ row.note }}</td>
+          <td class="go-question">
+            <fa-icon [icon]="faArrowRight" (click)="vaiAllaDomanda(row)"></fa-icon>
+          </td>
+          <td class="button">
+            <fa-icon [icon]="this.sessionService.rows[i].isVisible ? faAngleUp : faAngleDown"  (click)="toggle(i)"></fa-icon>
+          </td>
+        </tr>
+        <tr class="descrizione" *ngIf="this.sessionService.rows[i].isVisible">
+          <td></td>
+          <td colspan="6">{{ row.descrizione }}</td>
+          <td></td>
+        </tr>
+      </ng-container>
+    </tbody>
+    
+  </table>
+</div>
+  <div *ngIf="paginated" class="paginatore-container">
+    <app-button [disabled]="currentPage <= 1" option="link" (click)="prevPage()"><fa-icon [icon]="faAngleLeft"></fa-icon></app-button>
+    <span>{{ currentPage }} di {{ totalPages }}</span>
+    <app-button [disabled]="currentPage >= totalPages" option="link" (click)="nextPage()"><fa-icon [icon]="faAngleRight"></fa-icon></app-button>
+  </div>
+  

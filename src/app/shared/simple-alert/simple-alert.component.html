@@ -1,0 +1,13 @@
+<div *ngIf="this.simpleAlertService.isOpenedModal" class="container-modal">
+    <div class="popup">
+        <div>
+            {{this.simpleAlertService.message}}
+        </div>
+        <div>
+            <div class="row-center-right mt-12px">
+                <app-button class="mr-12px" (click)="this.simpleAlertService.closeModal()">Ok</app-button>
+            </div>
+
+        </div>
+    </div>
+</div>

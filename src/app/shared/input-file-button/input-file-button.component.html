@@ -1,0 +1,20 @@
+<div class="wrapper">
+	<div [ngClass]="{'input-allegato-box':fileAdded}" class="input-allegato">
+		<div class="file-name">
+			<fa-icon class="option-paper-clip" [icon]="faPaperclip"></fa-icon>
+			<div class="name-file-text"  #fileName>{{emptyInputString}}</div>
+		</div>
+		
+		<fa-icon class="cursor-pointer"  [icon]="faTimes" #closeIcon *ngIf="fileAdded && selectedRow && (!selectedRow.state || selectedRow.state == domandaStateEnum.BOZZA)" (click)="handleInputCancel($event)"></fa-icon>
+	</div>
+	<div class="icon-wrapper">
+		<input #fileInput type="file" [id]="idInput" class="inputfile" (click)="handleInputClick()"
+			(change)="handleInputChange($event)" />
+
+		<label [for]="idInput">
+			<div *ngIf="!fileAdded">{{emptyInputString}}</div>
+			<div class="img-carica" #circleIcon *ngIf="!fileAdded"></div>
+		</label>
+	</div>
+
+</div>
